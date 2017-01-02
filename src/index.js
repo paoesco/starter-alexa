@@ -1,5 +1,3 @@
-'use strict'
-
 console.log('Loading function')
 
 // MODULES IMPORT
@@ -14,16 +12,16 @@ exports.handler = (event, context, done) => {
 
   if (text) {
     recastClient.textConverse(text, { conversationToken: process.env.CONVERSATION_TOKEN || null })
-      .then(recast => {
+      .then((res) => {
         done(null, {
-          reply: recast.reply(),
-          conversationToken: recast.conversation_token
-        });
+          reply: res.reply(),
+          conversationToken: res.conversation_token,
+        })
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err)
         done(err)
-      });
+      })
   } else if (!text) {
     done(new Error('No text provided'))
   }
