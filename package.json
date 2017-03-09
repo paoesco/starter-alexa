@@ -10,7 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "recastai": "^2.3.0"
+    "recastai": "^2.3.0",
+    "recastai-botconnector": "^1.0.1"
   },
   "devDependencies": {
     "eslint": "^3.12.2",
