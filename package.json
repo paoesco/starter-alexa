@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "recastai": "^2.3.0",
+    "recastai": "^3.1.0",
     "recastai-botconnector": "^1.0.1",
     "request": "^2.81.0"
   },
