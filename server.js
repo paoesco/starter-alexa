@@ -13,7 +13,7 @@ const bot = require('./bot').bot
 
 // Start Express server
 const app = express()
-app.set('port', 4000)
+app.set('port', 3000)
 app.use(bodyParser.json())
 
 // Handle / route
