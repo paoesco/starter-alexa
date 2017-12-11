@@ -3,7 +3,7 @@ console.log('Loading function')
 const r = require('recastai').default
 const request = require('request')
 
-const recastClient = new r(process.env.REQUEST_TOKEN)
+const recastClient = new r.build(process.env.REQUEST_TOKEN)
 
 let sessionId = null
 let endConv = false
@@ -32,7 +32,7 @@ let handleAlexaMessage = (text) => {
   ]
 
   // Send input to Recast.AI
-  recastClient.request.converseText(text, { conversationToken: sessionId })
+  recastClient.dialog({ 'type': 'text', content: text}, { conversationId: sessionId })
     .then((res) => {
 
       console.log(res)
@@ -44,7 +44,7 @@ let handleAlexaMessage = (text) => {
       }
 
       // reply to Alexa
-      alexaReply(res.replies.join(' '))
+      alexaReply(res.messages[0].content)
     })
     .catch((err) => {
       console.error(err)
